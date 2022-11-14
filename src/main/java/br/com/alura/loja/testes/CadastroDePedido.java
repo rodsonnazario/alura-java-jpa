@@ -36,6 +36,8 @@ public class CadastroDePedido {
 		PedidoDao pedidoDao = new PedidoDao(em);
 		pedidoDao.cadastrar(pedido);
 		
+		System.out.println("Total vendido: " + pedidoDao.valorTotalVendido());
+		
 		em.getTransaction().commit();
 		em.close();
 	}
