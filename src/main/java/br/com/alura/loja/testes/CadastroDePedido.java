@@ -61,8 +61,8 @@ public class CadastroDePedido {
 		Categoria informatica = new Categoria("INFORMATICA");
 
 		Produto celular = new Produto("Xiaomi Redmi", "Celular bom e barato", new BigDecimal("800"), celulares);
-		Produto videogame = new Produto("PS5", "Playstation 5", new BigDecimal("800"), videogames);
-		Produto macbook = new Produto("Macbook", "Macbook Pro", new BigDecimal("800"), informatica);
+		Produto videogame = new Produto("PS5", "Playstation 5", new BigDecimal("5000"), videogames);
+		Produto macbook = new Produto("Macbook", "Macbook Pro", new BigDecimal("10000"), informatica);
 
 		Cliente cliente = new Cliente("Rodson Nazario", "12345678910");
 
