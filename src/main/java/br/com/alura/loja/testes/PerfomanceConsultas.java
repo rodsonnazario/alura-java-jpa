@@ -21,14 +21,18 @@ public class PerfomanceConsultas {
 
 		popularBancoDeDados();
 		EntityManager em = JPAUtil.getEntityManager();
+		PedidoDao pedidoDao = new PedidoDao(em);
 		em.getTransaction().begin();
 
-		Pedido pedido = em.find(Pedido.class, 1l);
-		System.out.println(pedido.getData());
-		System.out.println(pedido.getItens().size());
-
+		Pedido pedidoComLazy = pedidoDao.buscarPorId(1l);
+		System.out.println("Consulta com Lazy: " + pedidoComLazy.getData());
+		System.out.println("Consulta sem Lazy: " + pedidoComLazy.getItens().size());
+		
+		Pedido pedidoComFetch = pedidoDao.buscarPedidoComCliente(1L);
 		em.getTransaction().commit();
 		em.close();
+		
+		System.out.println("Consulta com Join Fetch: " + pedidoComFetch.getCliente().getNome());
 	}
 
 	private static void popularBancoDeDados() {
